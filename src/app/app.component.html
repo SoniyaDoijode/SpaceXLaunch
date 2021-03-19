@@ -65,8 +65,13 @@
       </div>
     </div>
 
+    <ng-container
+      *ngIf="!loadingData"
+      style="text-align: center; margin-left: 50%; margin-top: 50%"
+      >Loading Data in progress...</ng-container
+    >
+
     <div class="col-8 grid">
-      <div *ngIf="!loadingData">Loading Data in progress...</div>
       <div class="card" *ngFor="let item of data">
         <div class="imgDiv">
           <img [src]="item.links.mission_patch_small" alt="" class="imgCss" />

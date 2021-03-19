@@ -1,10 +1,166 @@
-// upto 700px
-@media only screen and (max-width: 700px) {
-  // html,
-  // body {
-  //   font-size: 1.5rem !important;
-  // }
+///////////////////////////////////////////////////////////////
 
+@media screen and (max-device-width: 589px) {
+  body {
+    background-color: #f0f0f0;
+  }
+
+  .rowCss {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .launchHeader {
+    text-align: center;
+    padding-bottom: 1px;
+    font-size: 1.2rem;
+  }
+
+  .imgCss {
+    width: 600px;
+    height: auto;
+  }
+
+  .card {
+    margin: 10px;
+    border-radius: 5px;
+    width: 620px;
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: -webkit-fill-available;
+  }
+
+  .infoDiv {
+    padding: 10px;
+    line-height: 50px;
+    font-size: 1.5rem !important;
+  }
+
+  .mainDiv {
+    background-color: white;
+    margin-left: 20px;
+    width: 660px;
+  }
+
+  .hr {
+    width: 120px;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    font-size: 1.5rem !important;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .loader {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid #3498db;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .btn:focus {
+    outline: none;
+    background-color: #349603;
+    border-radius: 0.2rem;
+    padding: 5px 15px;
+    border: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .title {
+    font-size: 1.5rem !important;
+    font-weight: 900;
+    padding: 5px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+  }
+
+  .imgDiv {
+    align-self: center;
+    background: #f0f0f0;
+  }
+
+  .missionName {
+    color: #3b0270;
+    // font-family: sans-serif;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 20px;
+  }
+
+  .successDiv {
+    margin-left: 30px;
+    text-align: center;
+    width: 660px;
+    background: white;
+    font-size: 1.5rem !important;
+    padding-bottom: 20px;
+  }
+
+  .filtersDiv {
+    text-align: left;
+    padding: 10px;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .yearCss {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: white;
+    padding: 5px;
+    margin-left: 20px;
+    width: 650px;
+    text-align: center;
+    font-size: 1.5rem !important;
+  }
+
+  .btn {
+    background-color: #85fa49;
+    border-radius: 0.2rem;
+    padding: 5px 15px;
+    border: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+}
+
+/////////////////////////////////////////////////////////////
+
+// upto 700px
+@media screen and (min-width: 590px) and (max-width: 700px) {
   body {
     background-color: #f0f0f0;
   }
@@ -163,7 +319,7 @@
 
 // ////////////////////////////////////////////////////////
 
-@media only screen and (min-width: 701px) and (max-width: 1023px) {
+@media screen and (min-width: 701px) and (max-width: 1023px) {
   body {
     background-color: #f0f0f0;
   }
@@ -323,7 +479,7 @@
 
 // above 1024px & upto 1440px
 
-@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
   .card {
     margin: 0px 10px 10px 10px;
     border-radius: 5px;
@@ -473,9 +629,10 @@
 }
 
 ////////////////////////////////////////////////////////
+
 //above 1440px
 
-@media only screen and (min-width: 1440px) {
+@media screen and (min-width: 1440px) {
   .card {
     margin: 0px 10px 10px 10px;
     border-radius: 5px;
