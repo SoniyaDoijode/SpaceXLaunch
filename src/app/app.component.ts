@@ -63,7 +63,7 @@ yearClick(launchYear){
   this.land_success=false;
 
   return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_year="+`${launchYear}`).subscribe(resYear =>{
-
+  this.launchYear = launchYear;
   this.data = resYear;
   if(this.data.length==0){
     console.log("no data found");
@@ -82,8 +82,8 @@ launchSuccessClick(launchSuccess){
   this.land_success=false;
   launchSuccess = launchSuccess.toLowerCase();
   this.launchSuccess = launchSuccess;
-  console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`);
-  return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`).subscribe(res =>{
+  console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`+"&launch_year="+`${this.launchYear}`);
+  return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`+"&launch_year="+`${this.launchYear}`).subscribe(res =>{
 
   this.data = res;
   if(this.data.length==0){
@@ -100,8 +100,8 @@ landSuccessClick(landSuccess){
   this.yearContent = false;
   this.land_success=true;
   landSuccess = landSuccess.toLowerCase()
-  console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`);
-  return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`).subscribe(res =>{
+  console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`+"&launch_year="+`${this.launchYear}`);
+  return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`+"&launch_year="+`${this.launchYear}`).subscribe(res =>{
 
     this.data = res;
     if(this.data.length==0){
