@@ -9,12 +9,15 @@
         <div class="launchHeader">
           Launch Year
           <hr class="hr" />
-          <div *ngIf="!loadingData">Loading Data in progress...</div>
+          <div *ngIf="!loadingData" class="loader">
+            Loading Data in progress...
+          </div>
         </div>
       </div>
 
       <div class="yearCss">
         <div *ngFor="let item of yearArr">
+          <div *ngIf="yearArr.length == 0">No Data Found....</div>
           <button
             class="btn"
             (click)="yearClick(item)"
@@ -31,6 +34,7 @@
         <div>Successful Launch</div>
         <hr class="hr" />
         <!-- <div class="loader" *ngIf="!loadingData"></div> -->
+        <!-- <div *ngIf="error">No Data Found....</div> -->
         <ng-container *ngFor="let item of launchSuccessArr">
           <button
             class="btn"
@@ -50,6 +54,7 @@
         <div>Successful Landing</div>
         <hr class="hr" />
         <!-- <div class="loader" *ngIf="!loadingData"></div> -->
+        <!-- <div *ngIf="error">No Data Found....</div> -->
         <ng-container *ngFor="let item of landingSuccessArr">
           <button
             class="btn"
@@ -65,13 +70,9 @@
       </div>
     </div>
 
-    <ng-container
-      *ngIf="!loadingData"
-      style="text-align: center; margin-left: 50%; margin-top: 50%"
-      >Loading Data in progress...</ng-container
-    >
-
     <div class="col-8 grid">
+      <!-- <ng-template noData>No Data Found !!! </ng-template> -->
+      <div *ngIf="!loadingData" class="loader">Loading Data in progress...</div>
       <div class="card" *ngFor="let item of data">
         <div class="imgDiv">
           <img [src]="item.links.mission_patch_small" alt="" class="imgCss" />
@@ -87,7 +88,7 @@
           <span><b>Mission Ids:</b> {{ item.mission_id || "N/A" }}</span
           ><br />
           <!-- <span *ngIf="!item.mission_id.length"><b>Mission Ids:</b> N/A</span
-          ><br /> -->
+            ><br /> -->
           <span><b>Launch Year:</b> {{ item.launch_year }}</span
           ><br />
           <span
@@ -98,6 +99,9 @@
             {{ item.rocket.first_stage.cores[0].land_success || "N/A" }}
           </span>
         </div>
+      </div>
+      <div *ngIf="loadingData && data.length == 0" class="noData">
+        No Data Found!!!...
       </div>
     </div>
   </div>

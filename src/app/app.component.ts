@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http"
-import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +26,7 @@ export class AppComponent implements OnInit{
   land_success: boolean;
   launchSuccess: any;
   landSuccessData: Object;
+  error: any;
 
   constructor(private http: HttpClient){  }
 
@@ -65,9 +65,14 @@ yearClick(launchYear){
   return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_year="+`${launchYear}`).subscribe(resYear =>{
 
   this.data = resYear;
-
+  if(this.data.length==0){
+    console.log("no data found");
+    return;
+  }
     console.log("this.yearData", this.data)
-  })
+  }
+
+)
 }
 
 launchSuccessClick(launchSuccess){
@@ -77,12 +82,14 @@ launchSuccessClick(launchSuccess){
   this.land_success=false;
   launchSuccess = launchSuccess.toLowerCase();
   this.launchSuccess = launchSuccess;
-  this.loadingData =true;
   console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`);
   return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${launchSuccess}`).subscribe(res =>{
-    this.loadingData =false;
-  this.data = res;
 
+  this.data = res;
+  if(this.data.length==0){
+    console.log("no data found");
+    return;
+  }
     console.log("this.launchSuccessData",this.data)
   })
 }
@@ -92,14 +99,16 @@ landSuccessClick(landSuccess){
   this.launch_success=false;
   this.yearContent = false;
   this.land_success=true;
-  landSuccess = landSuccess.toLowerCase();
-  this.loadingData =true;
+  landSuccess = landSuccess.toLowerCase()
   console.log("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`);
   return this.http.get("https://api.spaceXdata.com/v3/launches?limit=100&launch_success="+`${this.launchSuccess}`+"&land_success="+`${landSuccess}`).subscribe(res =>{
 
-
     this.data = res;
-    this.loadingData =false;
+    if(this.data.length==0){
+
+      console.log("no data found");
+      return;
+    }
     console.log("this.landSuccessData",this.data)
   })
 }
