@@ -85,10 +85,14 @@
             ></span
           >
           <br />
-          <span><b>Mission Ids:</b> {{ item.mission_id || "N/A" }}</span
-          ><br />
-          <!-- <span *ngIf="!item.mission_id.length"><b>Mission Ids:</b> N/A</span
-            ><br /> -->
+          <span *ngIf="item.mission_id.length > 0"
+            ><b>Mission Ids:</b> {{ item.mission_id }}</span
+          >
+          <span *ngIf="item.mission_id.length == 0"
+            ><b>Mission Ids:</b> N/A</span
+          >
+
+          <br />
           <span><b>Launch Year:</b> {{ item.launch_year }}</span
           ><br />
           <span
